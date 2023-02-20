@@ -8,13 +8,9 @@ const router = createRouter({
       redirect: {name:'users'},
       component: () => import('../views/DashboardView.vue'),
       beforeEnter: (to, from) => {
-        // reject the navigation
         if(localStorage.getItem('auth_token') && to.name !== 'login'){
-          // console.log('algo')
-          // return { name: 'users' }
           return true
         }else{
-          console.log('algo mas')
           return { name: 'login' }
         }
       },
@@ -23,19 +19,24 @@ const router = createRouter({
           path: 'users',
           name: 'users',
           component: () => import('../components/Users.vue'),
-        },
-        {
-          path: 'users/new',
-          name: 'newUser',
-          component: () => import('../components/NewUser.vue'),
-        },
+        }
       ],
     },
     {
       path: '/login',
       name: 'login',
-      component: () => import('../views/LoginView.vue')
-    }
+      component: () => import('../views/LoginView.vue'),
+      beforeEnter: (to, from) => {
+        if(localStorage.getItem('auth_token')){
+          return { name: 'users' }
+        }
+      },
+    },
+    {
+      path: '/crear',
+      name: 'register',
+      component: () => import('../views/RegisterView.vue'),
+    },
   ]
 })
 

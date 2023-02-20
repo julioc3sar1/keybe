@@ -1,11 +1,11 @@
 <script setup>
 import AuthView from './AuthView.vue';
-import LoginForm from '../components/LoginForm.vue'
+import RegisterForm from '../components/RegisterForm.vue';
 </script>
 <template>
     <div>
         <AuthView>
-            <LoginForm></LoginForm>
+            <RegisterForm></RegisterForm>
         </AuthView>
     </div>
 </template>

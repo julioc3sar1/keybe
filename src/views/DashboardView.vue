@@ -1,12 +1,9 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
-import Sidebar from '../components/Sidebar.vue';
 import Navbar from '../components/Navbar.vue';
 </script>
 
 <template>
   <main>
-    <!-- <TheWelcome /> -->
     <navbar class="mb-4"></navbar>
     <div class="container">
       <div class="row">

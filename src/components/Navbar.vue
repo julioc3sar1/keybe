@@ -14,7 +14,8 @@
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="#">Create user</a>
+                            <router-link to="/crear" class="nav-link">Create user</router-link>
+                        <!-- <a class="nav-link" href="#">Create user</a> -->
                         </li>
                         <li class="nav-item">
                         <a class="nav-link" href="mailto:julioc3sarr1@gmail.com">Hire me!</a>
