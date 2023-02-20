@@ -14,28 +14,35 @@
         <div class="container-fluid h-100">
             <div class="row h-100 align-items-md-center">
                 <div class="col-md-6 login_bg">
-                    <img src="" alt="">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore ea debitis iusto nemo eligendi accusamus sapiente quisquam fugit, architecto consequuntur alias, illum quos fugiat cupiditate aspernatur eum quod ex facilis.
+                    <!-- <img src="" alt=""> -->
                 </div>
-                <div class="col-md-6 login_form">
-                    <form class="px-3">
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" v-model="email">
-                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                <div class="col-md-6 login_form py-4">
+                    <div class="text-center">
+                        <h1 class="fw-bold text-dark">Welcome back</h1>
+                        <p>Login to your account</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-8 offset-md-2">
+                            <form class="p-3">
+                                <div class="mb-3">
+                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" v-model="email">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="password" class="form-control" id="exampleInputPassword1" v-model="password">
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <div class="mb-3 form-check">
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        <label class="form-check-label" for="exampleCheck1">Remember me</label>
+                                    </div>
+                                    <router-link to="" class="text-decoration-none">Forgot Password?</router-link>
+                                </div>
+                                <div class="d-grid">
+                                    <button type="button" class="btn btn-primary login_btn" @click="authStore.login({email,password})">Log In</button>
+                                </div>
+                            </form>        
                         </div>
-                        <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" v-model="password">
-                        </div>
-                        <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                        </div>
-                        <div class="d-grid">
-                            <button type="button" class="btn btn-primary" @click="authStore.login({email,password})">Submit</button>
-                        </div>
-                    </form>        
+                    </div>
                 </div>
             </div>
         </div>
@@ -45,16 +52,30 @@
 .login{
     height: 100vh;
     &_bg{
-        max-height: 200px;
+        height: 200px;
+        background-image: url('https://images.unsplash.com/photo-1619241638225-14d56e47ae64?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
     }
     &_form{
         height: calc(100% - 200px);
+        .login_btn{
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            border: 0;
+            height: 50px;
+            border-radius: 15px;
+            background: linear-gradient(91.47deg, #FFC52A 0.58%, #F79515 95.65%);
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        }
     }
 }
 @media (min-width: 992px) {
     .login{
         &_bg{
-            max-height: inherit;
+            height: inherit;
         }
         &_form{
             height: auto;

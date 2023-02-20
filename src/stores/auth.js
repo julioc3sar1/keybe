@@ -11,7 +11,7 @@ export const useAuthStore = defineStore('auth', () => {
         console.log(response);
         authenticated = false
         localStorage.setItem('auth_token',response.data.token)
-        router.push('/')
+        router.push('/users')
       })
       .catch(function (error) {
         console.log(error);

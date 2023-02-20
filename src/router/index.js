@@ -1,28 +1,39 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import DashboardView from '../views/DashboardView.vue'
-import Users from '../components/Users.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      component: DashboardView,
+      redirect: {name:'users'},
+      component: () => import('../views/DashboardView.vue'),
+      beforeEnter: (to, from) => {
+        // reject the navigation
+        if(localStorage.getItem('auth_token') && to.name !== 'login'){
+          // console.log('algo')
+          // return { name: 'users' }
+          return true
+        }else{
+          console.log('algo mas')
+          return { name: 'login' }
+        }
+      },
       children: [
         {
-          // UserProfile will be rendered inside User's <router-view>
-          // when /user/:id/profile is matched
           path: 'users',
-          component: Users,
-        }
+          name: 'users',
+          component: () => import('../components/Users.vue'),
+        },
+        {
+          path: 'users/new',
+          name: 'newUser',
+          component: () => import('../components/NewUser.vue'),
+        },
       ],
     },
     {
       path: '/login',
       name: 'login',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import('../views/LoginView.vue')
     }
   ]

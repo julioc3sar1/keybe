@@ -1,0 +1,45 @@
+table{
+    thead{
+        th{
+            white-space: nowrap;
+        }
+    }
+    tbody{
+        tr{
+            td{
+                .column_name{
+                    display: none;
+                }
+                vertical-align: center;
+            }
+        }
+    }
+}
+
+@media (max-width: 767.98px) {
+    table{
+        thead{
+            display: none;
+        }
+        tbody{
+            display: block;
+            tr{
+                display: flex;
+                flex-direction: column;
+                border-bottom: 1px solid gainsboro;
+                td{
+                    .column_name{
+                        display: inline;
+                        font-weight: 600;
+                        margin-right: .5rem;
+                    }
+                    --bs-table-accent-bg: white !important;
+                    border: 0;
+                    display: flex;
+                    align-items: center;
+                }
+            }
+        }
+    }
+        
+}

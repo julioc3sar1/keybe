@@ -6,6 +6,7 @@ export const useUsersStore = defineStore('users', () => {
     const users = ref([])
 
     function getUsers() {
+      users.value = []
       axios.get('https://reqres.in/api/users',{
         headers: {'Authorization': localStorage.getItem('auth_token')},
       })
@@ -17,6 +18,10 @@ export const useUsersStore = defineStore('users', () => {
       .catch(function (error) {
         console.log(error);
       });
+    }
+
+    function createUser(){
+      
     }
 
     return {users, getUsers}
